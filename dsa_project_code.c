@@ -1,19 +1,19 @@
 #include<stdio.h>
 #include<string.h>
-#include<conio.h> /* For Turbo C, for console input/output */
+#include<conio.h> //For Turbo C console input/output
 #define max 20
 
 char stack[max][100];
 int top = -1;
 
 void adding_website() {
-    char value[100]; /* Temporarily store the website here before adding to the stack */
+    char value[100]; //Temporarily store the website here before adding to the stack
     if (top == max - 1) {
         printf("Stack overflow!\n");
     } else {
         printf("Enter the page you want to visit:\n");
-        fflush(stdin); /* Clear the input buffer */
-        gets(value); /* Use gets instead of scanf for Turbo C compatibility */
+        fflush(stdin); //Clear the output buffer
+        gets(value); //Use gets instead of scanf for Turbo C compatibility
         top++;
         strcpy(stack[top], value);
     }
@@ -21,7 +21,7 @@ void adding_website() {
 
 void backward_button() {
     if (top == -1) {
-        printf("Stack underflow!\n");
+        printf("There is no pervious page to go to!\n");
     } else {
         printf("Previous website: ");
         top--;
@@ -30,7 +30,7 @@ void backward_button() {
 }
 
 void forward_button() {
-    if (top >= max-1 || top == -1) { /* Modified to prevent accessing beyond the stack */
+    if (top >= max-1 || top == -1) { //Sees if the stack might get stack overflow or underflow
         printf("No forward page available!\n");
     } else {
         printf("The following website: ");
